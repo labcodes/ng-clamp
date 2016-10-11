@@ -270,7 +270,7 @@
  */
 angular.module('ng-clamp', [])
   .constant('$clamp', $clamp)
-  .directive('ngClamp', function($clamp, $timeout) {
+  .directive('ngClamp', ["$clamp", "$timeout", function($clamp, $timeout) {
     function link(scope, element, attrs) {
       var nbLines = parseInt(attrs.ngClamp, 10);
       //	Watching binded variable on the same element which is clamped
@@ -296,7 +296,7 @@ angular.module('ng-clamp', [])
       'restrict': 'A',
       'link': link
     };
-  });
+  }]);
 /*
  * End of ng-clamp directive
  *
